@@ -1,0 +1,44 @@
+# In this coding assignment, you are asked to write a function to implement gradient descent algorithm for a data set, represented as a 2D array. You must follow all the instructions carefully.
+
+"""
+Instructions:
+1. The libraries and modules you need are imported for you. Please do NOT use any other libraries or modules.
+2. Use four spaces as your indentation.
+3. Please rename your function by replacing my net ID with yours, lowercase please.
+4. The function name (net ID part) is the only thing you can change. Do Not change anything else in the starter code.
+5. You may test your result by comparing the output from your code with that of using the formula.
+"""
+
+import numpy as np
+import numpy.linalg as linalg
+
+def gd_cc4825(X, y, a=0.05, t=0.000001):
+    """
+    X is a 2D array, with ones already added in the first column; y is a 1D array. They are the data set.
+    a is the learning rate with default value being set at 0.05.
+    t is the termination condition. When the improvement is less than t, terminate the algorithm. 
+    Return an array that includes the final values of all theta's (the coefficients in MLR model) 
+    """
+
+    # start your code below. 
+    converged = False
+    m = X.shape[0]
+    theta=np.zeros(X.shape[1])   
+    while True:
+        prediction=X.dot(theta)
+        cost=sum(np.square(prediction-y))*(1/2*m)
+        gradient = 1/m*(np.dot(X.T,(prediction-y)))
+        temp0=theta - a*gradient     
+        theta=temp0
+        prediction2=X.dot(theta)
+        cost2=sum(np.square(prediction2-y))*(1/2*m)   
+        
+        if cost2>cost:
+            print ('The cost function is increasing, adjust the learning rate, a, to lower the cost function')
+            break
+        elif abs(cost-cost2)<=t:
+            break
+            
+        
+                        
+    return theta
