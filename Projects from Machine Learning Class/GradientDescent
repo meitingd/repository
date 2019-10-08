@@ -1,13 +1,6 @@
-# In this coding assignment, you are asked to write a function to implement gradient descent algorithm for a data set, represented as a 2D array. You must follow all the instructions carefully.
+# Write a function to implement gradient descent algorithm for a data set, represented as a 2D array.
 
-"""
-Instructions:
-1. The libraries and modules you need are imported for you. Please do NOT use any other libraries or modules.
-2. Use four spaces as your indentation.
-3. Please rename your function by replacing my net ID with yours, lowercase please.
-4. The function name (net ID part) is the only thing you can change. Do Not change anything else in the starter code.
-5. You may test your result by comparing the output from your code with that of using the formula.
-"""
+
 
 import numpy as np
 import numpy.linalg as linalg
