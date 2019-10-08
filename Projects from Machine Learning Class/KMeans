@@ -1,0 +1,27 @@
+# Write a function to implement the update step in K Means. 
+
+
+import numpy as np
+
+def kmeans_update_cc4825(X, c, K):
+    """
+    Args:
+        X: (n, d) NumPy array, each row is an instance of the data set
+        c: (n, ) NumPy array, the assignment of each instance to its closest centroid.
+        K: scalar, the number of clusters
+    Returns:
+       MU: (K, d) NumPy array, each row is the updated coordinates of a centroid.
+    """
+    
+   
+    #step 1: use one hot encoding to reshape assignment, c
+    convert_c=np.eye(K)[c]
+    
+    #step 2: take the average of distances
+    mu=np.dot(X.T, convert_c)/np.sum(convert_c, axis=0)
+    
+    #step 3: return the centroid with the correct shape, (K, d)
+    return mu.T
+
+
+   

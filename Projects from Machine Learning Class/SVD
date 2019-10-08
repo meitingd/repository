@@ -1,0 +1,30 @@
+# Write a function to conduct SVD for a data set, represented as a 2D array. 
+
+
+
+import numpy as np
+from sklearn import preprocessing
+import numpy.linalg as linalg
+
+def svd_cc4825(X):
+    """
+    X is a 2D array, the data set
+    find thin SVD given X by returning three arrays: 
+    (1) the first array is a 2D array representing left singular vector matrix of X.
+    (2) the second array is a 1D array including all the singular values of X in descending order (from largest to smallest)
+    (3) the last array is the transpose of the right singular vector matrix of X.
+    """
+
+    
+    
+    XXT=np.dot(X,X.T)
+    u=linalg.eig(XXT)[1][:,:X.shape[1]]
+    s0=linalg.eigvals(XXT)
+    s0=np.array( [ num for num in s0 if num > 1 ] )
+    s0[::-1].sort()
+    s1=np.sqrt(s0)
+    XTX=np.dot(X.T,X)
+    vh=linalg.eig(XTX)[1]
+    vht=vh.T
+    return u, s1, vht
+

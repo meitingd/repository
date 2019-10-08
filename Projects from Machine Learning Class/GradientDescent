@@ -1,7 +1,6 @@
 # Write a function to implement gradient descent algorithm for a data set, represented as a 2D array.
 
 
-
 import numpy as np
 import numpy.linalg as linalg
 
@@ -13,7 +12,7 @@ def gd_cc4825(X, y, a=0.05, t=0.000001):
     Return an array that includes the final values of all theta's (the coefficients in MLR model) 
     """
 
-    # start your code below. 
+    
     converged = False
     m = X.shape[0]
     theta=np.zeros(X.shape[1])   
@@ -31,7 +30,5 @@ def gd_cc4825(X, y, a=0.05, t=0.000001):
             break
         elif abs(cost-cost2)<=t:
             break
-            
-        
-                        
+                       
     return theta

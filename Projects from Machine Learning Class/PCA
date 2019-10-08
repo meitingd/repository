@@ -14,7 +14,6 @@ def pca_cc4825(X):
     (2) the second array is the corresponding eigenvectors
     """
 
-    # start your code below. 
     
     Xs=preprocessing.scale(X)
     V=np.dot(Xs.T, Xs)/X.shape[0]
